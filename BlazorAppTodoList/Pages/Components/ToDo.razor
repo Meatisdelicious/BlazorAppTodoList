@@ -1,7 +1,36 @@
 ﻿@page "/todo"
 
 <h3>ToDo</h3>
+<!-- Edit Form-->
+<EditForm Model="task" calss="form-inline" OnValidSubmit="AddTask">
+    <input class="form-control mx-2" type="text" @bind-value="task.TaskName"/>
+    <button class= "btn btn-outline-primary" mx-2>Add Task</button>
+</EditForm>
+
+<ul>
+    @foreach(var taskitem in taskList)
+    {
+        if (taskitem.IsComplete)
+        {
+            <!--Task completed-->
+            <li>@taskitem.TaskName</li>
+        }
+        else
+        {
+            <!--Task Not completed-->
+            <li>@taskitem.TaskName</li>
+        }
+    }
+</ul>
 
 @code {
+    // C# code
+    protected List<TaskModel> taskList = new List<TaskModel>();
+    protected TaskModel task = new TaskModel();
 
+    private void AddTask()
+    {
+        taskList.Add(task);
+        task = new TaskModel();
+    }
 }
