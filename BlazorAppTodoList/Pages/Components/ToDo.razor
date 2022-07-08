@@ -1,6 +1,6 @@
 ﻿@page "/todo"
 
-<h3>ToDo</h3>
+<h3>@HeaderName</h3>
 <!-- Edit Form-->
 <EditForm Model="task" calss="form-inline" OnValidSubmit="AddTask">
     <input class="form-control mx-2" type="text" @bind-value="task.TaskName"/>
@@ -9,10 +9,7 @@
 
 <div class="progress-bar my-2 mx-2" role="progressbar" style="width:@(PercentageCompleted)%" aria-valuemax="100" aria-valuemin="0">
     @(PercentageCompleted)%
-
 </div>
-
-
 
 <ul>
     @foreach(var taskitem in taskList)
@@ -34,6 +31,17 @@
     // C# code
     protected List<TaskModel> taskList = new List<TaskModel>();
     protected TaskModel task = new TaskModel();
+
+    protected override void OnInitialized()
+    {
+        if (HeaderName == "")
+        {
+            HeaderName = "ToDo";
+        }
+    }
+
+    [Parameter]
+    public string? HeaderName{ get; set; }   // "?" pour enlever l'erreur
 
     private void AddTask()
     {
