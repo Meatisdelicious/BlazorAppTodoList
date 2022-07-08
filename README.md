@@ -1,4 +1,3 @@
-# BlazorAppTodoList
+﻿# Simple ToDo List
 
-# Realisation of a ToDo list in order to get familar with razor, C#, 
-# Visual studio Community 2022 and Github on this IDE.
+The goal of this small project was to make a simple ToDo list in order to get familar with Razor, C# and Visual Studio Community 2022 while using Github.
