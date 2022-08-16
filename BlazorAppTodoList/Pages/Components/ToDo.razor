@@ -12,7 +12,7 @@
 </div>
 
 <ul>
-    <!-- Ajoute la tache après l'avoir marquer -->
+    <!-- Ajoute la tache après l'avoir marqué -->
     @foreach(var taskitem in taskList)
     {
         if (taskitem.IsComplete)
@@ -33,28 +33,29 @@
     protected List<TaskModel> taskList = new List<TaskModel>();
     protected TaskModel task = new TaskModel();
 
+    // jsp j'arrive pas a trouver ce que ca fait sur l'appli
     protected override void OnInitialized()
     {
         if (HeaderName == "")
         {
-            HeaderName = "ToDo";
+            HeaderName = "Wasa";
         }
     }
 
     [Parameter]
-    public string? HeaderName{ get; set; }   // "?" pour enlever l'erreur
-
+    public string? HeaderName{ get; set; }
     private void AddTask()
     {
         taskList.Add(task);
         task = new TaskModel();
     }
 
+    // implemente le pourcentage total des taches complétés, a partir des taskList
     public int PercentageCompleted
     {
         get
         {
-            return taskList.Count > 0 ? (taskList.Count(x=> x.IsComplete)*100/taskList.Count) : 0;
+            return taskList.Count > 0 ? (taskList.Count(x => x.IsComplete)*100/taskList.Count) : 0;
         }
     }
 }
