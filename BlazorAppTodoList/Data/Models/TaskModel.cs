@@ -7,7 +7,7 @@ namespace BlazorAppTodoList.Data.Models
 {
     public class TaskModel
     {
-        public string TaskName { get; set; }
+        public string TaskName { get; set; } = default!;
         public bool IsComplete { get; set; }
     }
 }
