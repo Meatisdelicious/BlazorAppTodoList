@@ -16,4 +16,4 @@ namespace BlazorAppTodoList.Data
             }).ToArray());
         }
     }
-} 
+}
